@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>斐波那契数列</title>
+    </head>
+    <body>
+        <p>算法描述</p>
+        <span>
+            大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项（从0开始，第0项为0，第1项是1）。n<=39
+        </span>
+    </body>
+    <script>
+        function fibonacci(n) {
+            if (n === 0) {
+                return 0;
+            }
+            if (n === 1) {
+                return 1;
+            }
+            if (n > 1) {
+                return fibonacci(n - 1) + fibonacci(n - 2);
+            }
+        }
+
+        let value = 4;
+        console.log(fibonacci(value));
+    </script>
+</html>
