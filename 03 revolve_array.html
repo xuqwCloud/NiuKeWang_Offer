@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>旋转数组的最小数字</title>
+    </head>
+    <body>
+        <p>算法描述</p>
+        <span> 把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。</span>
+        <br />
+        <span> 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。</span>
+        <br />
+        <span> NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。 </span>
+    </body>
+    <script>
+        let array = [3, 4, 5, 1, 2];
+        function minNumberInRotateArray(rotateArray) {
+            if (rotateArray.length === 0) return 0;
+            let left = 0,
+                right = rotateArray.length - 1;
+            if (rotateArray[left] < rotateArray[right]) {
+                return rotateArray[left];
+            }
+            let mid;
+            while (left < right) {
+                if (left + 1 === right) {
+                    return rotateArray[right];
+                }
+                mid = (left + right) >> 1;
+                if (rotateArray[left] < rotateArray[mid]) {
+                    left = mid;
+                } else if (rotateArray[left] > rotateArray[mid]) {
+                    right = mid;
+                } else {
+                    if (rotateArray[right] === rotateArray[mid]) {
+                        return Math.min(...rotateArray.slice(left, right + 1));
+                    }
+                    left = mid;
+                }
+            }
+        }
+
+        console.log(minNumberInRotateArray(array));
+    </script>
+</html>
