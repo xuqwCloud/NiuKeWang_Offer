@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>第一个只出现一次的字符</title>
+    </head>
+    <body>
+        <p>算法描述</p>
+        <span>
+            在一个字符串(0<=字符串长度<=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置,
+            如果没有则返回 -1（需要区分大小写）.（从0开始计数）</span
+        >
+    </body>
+    <script>
+        let str = 'google';
+        function FirstNotRepeatingChar(str) {
+            // write code here
+            let obj = {};
+            let strArray = [...str];
+            for (let i = 0; i < strArray.length; i++) {
+                if (obj[strArray[i]]) {
+                    obj[strArray[i]]++;
+                } else {
+                    obj[strArray[i]] = 1;
+                }
+            }
+
+            for (const item in obj) {
+                if (obj[item] === 1) {
+                    let index = str.indexOf(item);
+                    return index;
+                }
+            }
+
+            return -1;
+        }
+
+        console.log(FirstNotRepeatingChar(str));
+    </script>
+</html>
