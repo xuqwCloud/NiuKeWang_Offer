@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>两个链表中的第一个公共节点</title>
+    </head>
+    <body>
+        <p>算法描述</p>
+        <span>
+            输入两个链表，找出它们的第一个公共结点。（注意因为传入数据是链表，所以错误测试数据的提示是用其他方式显示的，保证传入数据是正确的）</span
+        >
+    </body>
+    <script>
+        function ListNode(x) {
+            this.val = x;
+            this.next = null;
+        }
+        function FindFirstCommonNode(pHead1, pHead2) {
+            // write code here
+            if (!pHead1 || !pHead2) return null;
+            while (pHead1) {
+                pHead1.flag = true;
+                pHead1 = pHead1.next;
+            }
+            while (pHead2) {
+                if (pHead2.flag) return pHead2;
+                pHead2 = pHead2.next;
+            }
+            return null;
+        }
+        module.exports = {
+            FindFirstCommonNode: FindFirstCommonNode,
+        };
+    </script>
+</html>
