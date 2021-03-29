@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>从尾到头打印链表</title>
+    </head>
+    <body>
+        <p>算法描述</p>
+        <span> 输入一个链表，按链表从尾到头的顺序返回一个ArrayList。</span>
+    </body>
+    <script>
+        function ListNode(x) {
+            this.val = x;
+            this.next = null;
+        }
+        function printListFromTailToHead(head) {
+            // write code here
+            let result = [];
+            let node = head;
+            while (node) {
+                if (!node) return null;
+                result.push(node.val);
+                node = node.next;
+            }
+            return result.reverse();
+        }
+        module.exports = {
+            printListFromTailToHead: printListFromTailToHead,
+        };
+    </script>
+</html>
